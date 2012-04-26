@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <BuildPath>$(MSBuildProjectDirectory)\..</BuildPath>
+    <BuildRootPath>$(BuildPath)\..</BuildRootPath>
+    <BuildApplicationSourcesPath>$(BuildRootPath)\Sources</BuildApplicationSourcesPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+
+  <Target Name="CompileApplication">
+    <MSBuild Projects="$(BuildApplicationSourcesPath)\Rhapsody\Rhapsody.csproj" Properties="Configuration=$(Configuration)" />
+  </Target>
+  
+  <Target Name="Build">
+    <CallTarget Targets="CompileApplication" />
+  </Target>
+
+</Project>
